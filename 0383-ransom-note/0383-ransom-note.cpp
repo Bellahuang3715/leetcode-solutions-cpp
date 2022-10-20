@@ -8,7 +8,7 @@ public:
         for (auto c: ransomNote) {
             charCount[c]--;
         }
-        for (auto &ele: charCount) {
+        for (auto ele: charCount) {
             if (ele.second < 0) {
                 return false;
             }
