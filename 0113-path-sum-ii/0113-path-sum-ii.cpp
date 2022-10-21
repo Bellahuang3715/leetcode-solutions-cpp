@@ -11,22 +11,27 @@
  */
 class Solution {
 public:
-    vector<vector<int>> answer;
+    vector<vector<int>> equalSum;
+    
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         vector<int> path;
         dfs(root, targetSum, path);// using dfs to traverse on each node
-        return answer;
+        return equalSum;
     }
-    void dfs(TreeNode* root, int newtarget, vector<int>& path) {
-        if (!root) return; // if current root is null return
+    
+    void dfs(TreeNode* root, int newTarget, vector<int>& path) {
+        if (!root) return;
         path.push_back(root->val);
-        newtarget -= root->val; // new target will be the privious target- the value of that node
-        if (!root->left && !root->right) { // check whether it is a leaf node or not
-            if (newtarget == 0) // if we get valid path, pushback in our answer
-                answer.push_back(path);
-        } else {
-            dfs(root->left, newtarget, path);
-            dfs(root->right, newtarget, path);
+        newTarget -= root->val;
+        // if current node is a leaf node
+        if (!root->left && !root->right) { 
+            if (newTarget == 0) {
+                equalSum.push_back(path);                
+            }
+        }
+        else {
+            dfs(root->left, newTarget, path);
+            dfs(root->right, newTarget, path);
         }
         path.pop_back(); // for the backtracking
     }
