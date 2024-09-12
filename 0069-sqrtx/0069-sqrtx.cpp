@@ -1,7 +1,7 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        // binary search
+        // binary search (log(n) runtime)
         int left = 0, right = x;
         while (left <= right)
         {
