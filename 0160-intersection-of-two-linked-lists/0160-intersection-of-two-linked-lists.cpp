@@ -8,6 +8,8 @@
  */
 class Solution {
 public:
+    // note: neetcode has a very efficient O(n+m) solution, learn how that works
+    
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if (!headA || !headB) return nullptr;
         
