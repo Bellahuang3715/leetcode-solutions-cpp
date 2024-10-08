@@ -10,6 +10,9 @@ public:
             fast = nums[nums[fast]];   // fast moves two steps
         } while (slow != fast);
         
+        // from the point that they meet, the distance from start of array -> start of loop
+        // is the same as the distance from start of loop -> point of intersection
+        
         // Step 3: Reset one pointer to the start
         slow = nums[0];
         
